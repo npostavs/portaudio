@@ -1,7 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "portaudio", "portaudio.vcproj", "{0A18A071-125E-442F-AFF7-A3F68ABECF99}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "portaudio", "portaudio.vcxproj", "{0A18A071-125E-442F-AFF7-A3F68ABECF99}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pa_wire", "..\pa_wire\pa_wire.vcxproj", "{8DC9025B-31A1-402E-9487-05C9CDA09CCF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pa_devs", "..\pa_devs\pa_devs.vcxproj", "{88270792-A3CC-4EAA-8EBF-8F800C738931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,8 +31,35 @@ Global
 		{0A18A071-125E-442F-AFF7-A3F68ABECF99}.ReleaseMinDependency|Win32.Build.0 = ReleaseMinDependency|Win32
 		{0A18A071-125E-442F-AFF7-A3F68ABECF99}.ReleaseMinDependency|x64.ActiveCfg = ReleaseMinDependency|x64
 		{0A18A071-125E-442F-AFF7-A3F68ABECF99}.ReleaseMinDependency|x64.Build.0 = ReleaseMinDependency|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Debug|Win32.Build.0 = Debug|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Debug|x64.ActiveCfg = Debug|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Debug|x64.Build.0 = Debug|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Release|Win32.ActiveCfg = Release|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Release|Win32.Build.0 = Release|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Release|x64.ActiveCfg = Release|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.Release|x64.Build.0 = Release|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.ReleaseMinDependency|Win32.ActiveCfg = Release|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.ReleaseMinDependency|Win32.Build.0 = Release|Win32
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.ReleaseMinDependency|x64.ActiveCfg = Release|x64
+		{8DC9025B-31A1-402E-9487-05C9CDA09CCF}.ReleaseMinDependency|x64.Build.0 = Release|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Debug|Win32.Build.0 = Debug|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Debug|x64.ActiveCfg = Debug|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Debug|x64.Build.0 = Debug|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Release|Win32.ActiveCfg = Release|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Release|Win32.Build.0 = Release|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Release|x64.ActiveCfg = Release|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.Release|x64.Build.0 = Release|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.ReleaseMinDependency|Win32.ActiveCfg = Release|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.ReleaseMinDependency|Win32.Build.0 = Release|Win32
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.ReleaseMinDependency|x64.ActiveCfg = Release|x64
+		{88270792-A3CC-4EAA-8EBF-8F800C738931}.ReleaseMinDependency|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5FADEEF-3821-4FBC-98C4-7029D6FEE62B}
 	EndGlobalSection
 EndGlobal

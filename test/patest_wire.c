@@ -52,6 +52,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h> // atoi
 #include "portaudio.h"
 
 #define SAMPLE_RATE            (44100)
@@ -96,8 +97,7 @@ typedef struct WireConfig_s
 double gInOutScaler = 1.0;
 #define CONVERT_IN_TO_OUT(in)  ((OUTPUT_SAMPLE) ((in) * gInOutScaler))
 
-#define INPUT_DEVICE           (Pa_GetDefaultInputDevice())
-#define OUTPUT_DEVICE          (Pa_GetDefaultOutputDevice())
+PaDeviceIndex inputDevice, outputDevice;
 
 static PaError TestConfiguration( WireConfig_t *config );
 
@@ -180,8 +180,7 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer,
 }
 
 /*******************************************************************/
-int main(void);
-int main(void)
+int main(int argc, char* argv[])
 {
     PaError err = paNoError;
     WireConfig_t CONFIG;
@@ -194,8 +193,22 @@ int main(void)
     printf("Please connect audio signal to input and listen for it on output!\n");
     printf("input format = %lu\n", INPUT_FORMAT );
     printf("output format = %lu\n", OUTPUT_FORMAT );
-    printf("input device ID  = %d\n", INPUT_DEVICE );
-    printf("output device ID = %d\n", OUTPUT_DEVICE );
+
+    if (argc >= 3) {
+        inputDevice = atoi(argv[1]);
+        outputDevice = atoi(argv[2]);
+    } else {
+        inputDevice = Pa_GetDefaultInputDevice();
+        outputDevice = Pa_GetDefaultOutputDevice();
+    }
+    const PaDeviceInfo* inputInfo = Pa_GetDeviceInfo(inputDevice);
+    const PaDeviceInfo* outputInfo = Pa_GetDeviceInfo(outputDevice);
+
+    const PaHostApiInfo* inputApiInfo = Pa_GetHostApiInfo(inputInfo->hostApi);
+    const PaHostApiInfo* outputApiInfo = Pa_GetHostApiInfo(outputInfo->hostApi);
+
+    printf("input device ID  = %d [%s]'%s'\n", inputDevice, inputApiInfo->name, inputInfo->name );
+    printf("output device ID = %d [%s]'%s'\n", outputDevice, outputApiInfo->name, outputInfo->name);
 
     if( INPUT_FORMAT == OUTPUT_FORMAT )
     {
@@ -267,7 +280,7 @@ static PaError TestConfiguration( WireConfig_t *config )
     printf("output channels = %d\n", config->numOutputChannels );
     printf("framesPerCallback = %d\n", config->framesPerCallback );
 
-    inputParameters.device = INPUT_DEVICE;              /* default input device */
+    inputParameters.device = inputDevice;              /* default input device */
     if (inputParameters.device == paNoDevice) {
         fprintf(stderr,"Error: No default input device.\n");
         goto error;
@@ -277,7 +290,7 @@ static PaError TestConfiguration( WireConfig_t *config )
     inputParameters.suggestedLatency = Pa_GetDeviceInfo( inputParameters.device )->defaultLowInputLatency;
     inputParameters.hostApiSpecificStreamInfo = NULL;
 
-    outputParameters.device = OUTPUT_DEVICE;            /* default output device */
+    outputParameters.device = outputDevice;            /* default output device */
     if (outputParameters.device == paNoDevice) {
         fprintf(stderr,"Error: No default output device.\n");
         goto error;

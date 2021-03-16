@@ -115,7 +115,7 @@ int main(void)
     }
 
     printf( "PortAudio version: 0x%08X\n", Pa_GetVersion());
-    printf( "Version text: '%s'\n", Pa_GetVersionInfo()->versionText );
+    //printf( "Version text: '%s'\n", Pa_GetVersionInfo()->versionText );
 
     numDevices = Pa_GetDeviceCount();
     if( numDevices < 0 )
@@ -242,6 +242,7 @@ int main(void)
     Pa_Terminate();
 
     printf("----------------------------------------------\n");
+    fgetc(stdin);
     return 0;
 
 error:
